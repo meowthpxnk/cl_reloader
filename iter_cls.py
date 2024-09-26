@@ -24,26 +24,23 @@ async def iter_cls(phones):
         if task.exception():
             print(
                 bcolors.WARNING + "WARN: " + bcolors.ENDC,
-                f"Phone {phone["phone"]}Exception ",
+                f"Phone {phone['phone']}Exception ",
                 task.exception(),
             )
 
-            res_data.append({
-                "phone": phone["phone"],
-                "error": f"{str(task.exception())}"
-            })
+            res_data.append(
+                {"phone": phone["phone"], "error": f"{str(task.exception())}"}
+            )
 
             continue
 
         data, status, text = task.result()
 
-        res_data.append({
-            "device": phone,
-            "req": {
-                "status":status,
-                "text": text,
-                "data": data
+        res_data.append(
+            {
+                "device": phone,
+                "req": {"status": status, "text": text, "data": data},
             }
-        })
+        )
 
     return res_data
