@@ -1,3 +1,10 @@
-r = {1: 10, 2: 30}
+import asyncio
 
-print(10 in r)
+
+async def test():
+    print("test case 777")
+
+
+l = asyncio.get_event_loop()
+
+l.run_until_complete(test())
