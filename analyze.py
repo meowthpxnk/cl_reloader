@@ -24,8 +24,7 @@ async def analyze(DB_PATH):
                 print(
                     f"Failed reload device with phone {res['device']['phone']}, Error: {error}"
                 )
-            finally:
-                continue
+            continue
         elif status == 404:
             print(f"Alright with phone {res['device']['phone']}")
             continue
