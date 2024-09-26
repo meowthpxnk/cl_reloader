@@ -19,7 +19,7 @@ async def analyze(DB_PATH):
                 f"{res['device']['phone']} Should be reloaded on server {res['device']['server']}, port {[res['device']['port']]}"
             )
             try:
-                reload_device(res["device"]["phone"])
+                await reload_device(res["device"]["phone"])
             except Exception as error:
                 print(
                     f"Failed reload device with phone {res['device']['phone']}, Error: {error}"
