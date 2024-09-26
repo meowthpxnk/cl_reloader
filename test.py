@@ -6,7 +6,10 @@ async def test2():
 
 
 async def test():
-    await test2()
+    try:
+        await test2()
+    except:
+        print("failed")
 
 
 l = asyncio.get_event_loop()
