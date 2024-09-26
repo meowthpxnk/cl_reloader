@@ -9,7 +9,7 @@ from statuses import STATUS_ENUM
 
 
 def db_get_data(db_path: str):
-    request = "SELECT d.phone, d.server_id, d.port, d.clicker_status FROM devices as d WHERE d._is_active = TRUE AND d.state = 'ON'"
+    request = "SELECT d.phone, d.server_id, d.port, d.clicker_status FROM devices as d WHERE d._is_active = 1 AND d.state = 'ON'"
     connection = sqlite3.connect(db_path)
     cursor = connection.cursor()
     request_result = list(cursor.execute(request))
@@ -45,6 +45,7 @@ def get_clickers(db_path):
 
 
 if __name__ == "__main__":
+    from get_db_path import get_db_path
 
-    r = get_clickers("new_connector.db")
+    r = get_clickers(get_db_path())
     print(json.dumps(r, indent=4))

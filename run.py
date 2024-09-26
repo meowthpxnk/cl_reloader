@@ -27,6 +27,8 @@ async def task_schedule():
     while True:
         print("Start analyze clickers")
         await analyze(db_path)
+        print("End analyze clickers")
+        print(f"Need to sleep {SLEEP_TIME} seconds.")
         await asyncio.sleep(SLEEP_TIME)
 
 
