@@ -30,7 +30,9 @@ if __name__ == "__main__":
     from get_db_path import get_db_path
     import asyncio
 
-    data = asyncio.run(txt_analyze(get_db_path()))
+    l = asyncio.get_event_loop()
+
+    data = l.run_until_complete(txt_analyze(get_db_path()))
 
     with open("tech_analyse.txt", "w", encoding="utf-8") as f:
         f.write(data)
