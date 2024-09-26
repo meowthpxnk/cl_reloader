@@ -37,4 +37,6 @@ if __name__ == "__main__":
     from get_db_path import get_db_path
     import asyncio
 
-    asyncio.run(analyze(get_db_path()))
+    loop = asyncio.get_event_loop()
+
+    loop.run_until_complete(analyze(get_db_path()))
