@@ -3,7 +3,7 @@ from iter_cls import iter_cls
 
 def prepare_status(res):
     if res.get("error"):
-        return f"❌ Ошибка: {res["error"]}"
+        return f"❌ Ошибка: {res['error']}"
     status = res["req"]["status"]
     if status == 502:
         return "🔄 Перезагрузить"
