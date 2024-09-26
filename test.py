@@ -10,11 +10,11 @@ async def test(DB_PATH):
     # data = await iter_cls(clickers)
 
     for res in [1, 2]:
-        if res.get("error"):
-            print(
-                f"Error with device {res['device']['phone']} Error: {res.get('error')}"
-            )
-            continue
+        # if res.get("error"):
+        #     print(
+        #         f"Error with device {res['device']['phone']} Error: {res.get('error')}"
+        #     )
+        #     continue
         status = 502
         if status == 502:
             print(
