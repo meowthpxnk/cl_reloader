@@ -10,7 +10,7 @@ async def iter_cls(phones):
 
     for phone in phones:
         tasks.append(
-            asyncio.create_task(
+            asyncio.ensure_future(
                 req(phone["port"], phone["server"], phone["phone"])
             )
         )
