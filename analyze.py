@@ -8,21 +8,21 @@ async def analyze(DB_PATH):
 
     for res in data:
         if res.get("error"):
-            print(f"Error with device {res["device"]["phone"]} Error: {res.get("error")}")
+            print(f"Error with device {res['device']['phone']} Error: {res.get("error")}")
             continue
         status = res["req"]["status"]
         if status == 502:
-            print(f"{res["device"]["phone"]} Should be reloaded on server {res["device"]["server"]}, port {[res["device"]["port"]]}")
+            print(f"{res['device']['phone']} Should be reloaded on server {res['device']['server']}, port {[res['device']['port']]}")
             try:
-                reload_device(res["device"]["phone"])
+                reload_device(res['device']['phone'])
             except Exception as error:
-                print(f"Failed reload device with phone {res["device"]["phone"]}, Error: {error}")
+                print(f"Failed reload device with phone {res['device']['phone']}, Error: {error}")
             finally:
                 continue
         elif status == 404:
-            print(f"Alright with phone {res["device"]["phone"]}")
+            print(f"Alright with phone {res['device']['phone']}")
             continue
-        print(f"🤷‍♀️🤷‍♀️🤷‍♀️, Phone {res["device"]["phone"]} statuscode is {status}")
+        print(f"🤷‍♀️🤷‍♀️🤷‍♀️, Phone {res['device']['phone']} statuscode is {status}")
 
 
 if __name__ == "__main__":
