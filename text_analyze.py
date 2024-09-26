@@ -21,8 +21,8 @@ async def txt_analyze(DB_PATH):
 
     for res in data:
         phone_str = f"Номер: {res['device']['phone']}, Порт: {res['device']['port']}, Сервер: {res['device']['server']}"
-        txt_data += f"{phone_str}\n"
-        txt_data += prepare_status(res) + "\n\n"
+        txt_data += f"{phone_str}\t"
+        txt_data += prepare_status(res) + "\n"
     return txt_data
 
 
